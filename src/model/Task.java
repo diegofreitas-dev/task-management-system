@@ -5,14 +5,22 @@ public class Task {
     private String title;
     private String description;
     private TaskStatus status = TaskStatus.PENDING;
+    private TaskPriority priority;
 
-    public Task(int id, String title, String description) {
+    public Task(int id, String title, String description, TaskPriority priority) {
        this.ID = id;
        this.title = title;
        this.description = description;
+       this.priority = priority;
     }
 
     public int getID() {return ID;}
+
+    public String getTitle() {return title;}
+
+    public TaskStatus getStatus() {return status;}
+
+    public TaskPriority getPriority() {return priority;}
 
     public void updateTitle(String title) {
         this.title = title;
@@ -26,10 +34,13 @@ public class Task {
         status = newStatus;
     }
 
+    public void updatePriority(TaskPriority newPriority) {priority = newPriority;}
+
     @Override
     public String toString() {
         return "ID: " + ID + "; Title: " + title +
                 "; Description: " + description +
-                "Status: " + status;
+                "; Priority: " + priority.toString() +
+                "; Status: " + status;
     }
 }

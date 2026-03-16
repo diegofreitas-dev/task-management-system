@@ -2,12 +2,10 @@ package service;
 
 
 import model.Task;
+import model.TaskPriority;
 import model.TaskStatus;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TaskService {
     private Map<Integer, Task> tasks;
@@ -17,8 +15,8 @@ public class TaskService {
         tasks = new HashMap<>();
     }
 
-    public Task createTask(String title, String description) {
-        Task task = new Task(countID++, title, description);
+    public Task createTask(String title, String description, TaskPriority priority) {
+        Task task = new Task(countID++, title, description, priority);
 
         tasks.put(task.getID(), task);
         return task;
@@ -40,15 +38,35 @@ public class TaskService {
         return tasks.values();
     }
 
-    public Task modifyTask(int id, String title, String description) {
+    public Task modifyTask(int id, String title, String description, TaskPriority priority) {
         Task task = searchTask(id);
         task.updateTitle(title);
         task.updateDescription(description);
+        task.updatePriority(priority);
 
         return task;
     }
 
-    private Task searchTask(int id) {
+    public List<Task> searchTaskByTitle(String title) {
+        return this.tasks.values().stream()
+                .filter(task -> task.getTitle().equalsIgnoreCase(title))
+                .toList();
+    }
+
+    public List<Task> searchTaskByStatus(TaskStatus status) {
+
+        return this.tasks.values().stream()
+                .filter(task -> task.getStatus() == status)
+                .toList();
+    }
+
+    public List<Task> searchTaskByPriority(TaskPriority priority) {
+        return this.tasks.values().stream()
+                .filter(task -> task.getPriority() == priority)
+                .toList();
+    }
+
+    public Task searchTask(int id) {
         Task task = tasks.get(id);
 
         if (task != null) {

@@ -1,17 +1,24 @@
 package model;
 
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Task {
     private final int ID;
     private String title;
     private String description;
     private TaskStatus status = TaskStatus.PENDING;
     private TaskPriority priority;
+    private List<Tag> tags;
 
     public Task(int id, String title, String description, TaskPriority priority) {
        this.ID = id;
        this.title = title;
        this.description = description;
        this.priority = priority;
+       this.tags = new ArrayList<>();
     }
 
     public int getID() {return ID;}
@@ -35,6 +42,23 @@ public class Task {
     }
 
     public void updatePriority(TaskPriority newPriority) {priority = newPriority;}
+
+    public void addTags(Tag newtag) {
+        boolean exist = tags.stream()
+                .anyMatch(tag -> tag == newtag);
+
+        if (!exist) {
+            tags.add(newtag);
+        }
+    }
+
+    public void deleteTag(Tag tag) {
+        this.tags.removeIf(t -> t == tag);
+    }
+
+    public List<Tag> getTags() {
+        return Collections.unmodifiableList(tags);
+    }
 
     @Override
     public String toString() {

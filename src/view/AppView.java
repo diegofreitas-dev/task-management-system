@@ -1,21 +1,20 @@
 package view;
 
 import controller.TaskController;
-import model.Task;
-import model.TaskPriority;
-import model.TaskStatus;
-import service.TaskService;
+import model.Tag;
 
 import java.util.Collection;
 import java.util.Scanner;
 
 public class AppView {
     private final Scanner scanner;
+    TaskView taskView;
     private final TaskController taskController;
 
-    public AppView(TaskController taskController) {
+    public AppView(TaskController taskController, TaskView taskView) {
         this.scanner = new Scanner(System.in);
         this.taskController = taskController;
+        this.taskView = taskView;
     }
 
     public void run() {
@@ -23,142 +22,57 @@ public class AppView {
 
         while (run) {
             System.out.println("Escolha uma das opções abaixo");
-            System.out.println("[1] Criar uma tarefa");
-            System.out.println("[2] Listar tarefas criadas");
-            System.out.println("[3] Mudar o status de uma tarefa");
-            System.out.println("[4] Modificar uma tarefa");
-            System.out.println("[5] Procurar por tarefas");
-            System.out.println("[6] Apagar uma tarefa");
-            System.out.println("[7] Encerrar programa");
+            System.out.println("[1] Gerenciar Tarefas");
+            System.out.println("[2] adicionar tag a uma tarefa");
+            System.out.println("[3] Listar tags criadas");
+            System.out.println("[4] Alterar uma tag");
+            System.out.println("[5] Apagar uma tag");
+            System.out.println("[0] Encerrar programa");
 
             int choice = readInt();
 
             switch(choice) {
-                case 1 -> createTask();
-                case 2 -> listTask();
-                case 3 -> changeTaskStatus();
-                case 4 -> modifyTask();
-                case 5 -> searchTasks();
-                case 6 -> deleteTask();
-                case 7 -> run = false;
+                case 0 -> run = false;
+                case 1 -> taskView.taskMenu();
+                case 2 -> createTag();
+                case 3 -> listTags();
+                case 4 -> updateTag();
+                case 5 -> deleteTag();
                 default -> throw new IllegalArgumentException("invalid choice");
             }
         }
     }
 
-    private void createTask() {
-        System.out.println("Digite o Titulo da tarefa:");
-        String title = scanner.nextLine();
-        System.out.println("Digite a descrição da tarefa:");
-        String description = scanner.nextLine();
-
-        int choicePriority = askAboutPriority();
-
-        System.out.println(
-                taskController.createTask(title, description, choicePriority)
-        );
+    private void createTag() {
+        System.out.println("Qual o nome da tag:");
+        String tagName = scanner.nextLine();
+        System.out.println("Qual o id da task que deseja atribuir?");
+        int taskId = readInt();
+        System.out.println(taskController.addTag(taskId, tagName));
     }
 
-    private void listTask() {
-        Collection<Task> tasks = taskController.listTasks();
+    private void listTags() {
+        Collection<Tag> tags = taskController.listTags();
 
-        for (Task task : tasks) {
-            System.out.println(task);
+        for (Tag tag : tags) {
+            System.out.println(tag);
         }
     }
 
-    private void changeTaskStatus() {
-        System.out.println("Digite o ID da tarefa que deseja alterar:");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+    private void updateTag() {
+        System.out.println("digite o id da task que você deseja alterar");
+        int tagId = readInt();
+        System.out.println("Qual o novo nome que você deseja colocar:");
+        String newName = scanner.nextLine();
 
-        int choiceStatus = askAboutStatus();
-
-        System.out.println(
-                taskController.changeTaskStatus(id, choiceStatus)
-        );
+        System.out.println(taskController.updateTag(tagId, newName));
     }
 
-    private void modifyTask() {
-        System.out.println("Digite o id da tarefa:");
-        int id = readInt();
-        System.out.println("Digite o novo título:");
-        String newTitle = scanner.nextLine();
-        System.out.println("Digite a nova descrição");
-        String newDescription = scanner.nextLine();
+    private void deleteTag() {
+        System.out.println("Digite o ID da tag:");
+        int tagId = readInt();
 
-        int choicePriority = askAboutPriority();
-
-        System.out.println(
-                taskController.modifyTask(id, newTitle, newDescription, choicePriority)
-        );
-    }
-
-    private void searchTasks() {
-        System.out.println("Qual método do busca você deseja usar?");
-        System.out.println("[1] Busca por ID");
-        System.out.println("[2] Busca por Título");
-        System.out.println("[3] Busca por Status");
-        System.out.println("[4] Busca por Prioridade");
-        int choice = readInt();
-
-        switch (choice) {
-            case 1 -> {
-                System.out.println("Digite o ID da tarefa");
-                int id = readInt();
-                System.out.println(
-                        taskController.searchTask(id)
-                );
-            }
-            case 2 -> {
-                System.out.println("Digite o título da tarefa");
-                String title = scanner.nextLine();
-                System.out.println(
-                        taskController.searchTaskByTitle(title)
-                );
-            }
-            case 3 -> {
-                int choiceStatus = askAboutStatus();
-
-                for (Task task : taskController.searchTaskByStatus(choiceStatus)) {
-                    System.out.println(task);
-                }
-            }
-            case 4 -> {
-                int priority = askAboutPriority();
-                for (Task task : taskController.searchTaskByPriority(priority)) {
-                    System.out.println(task);
-                }
-            }
-            default -> throw new IllegalArgumentException("invalid choice");
-        }
-    }
-
-    private int askAboutPriority() {
-        System.out.println("Qual vai ser a nova prioridade?");
-        System.out.println("[1] Baixo");
-        System.out.println("[2] Médio");
-        System.out.println("[3] Alto");
-        System.out.println("[4] Urgente");
-
-        return readInt();
-    }
-
-    private int askAboutStatus() {
-        System.out.println("Digite o Status da tarefa");
-        System.out.println("[1] Pendente");
-        System.out.println("[2] Em progresso");
-        System.out.println("[3] Concluída");
-
-        return readInt();
-    }
-
-    private void deleteTask() {
-        System.out.println("Digite o id da tarefa:");
-        int id = readInt();
-
-        taskController.deleteTask(id);
-        System.out.println("Tarefa apagada com sucesso");
+        System.out.println(taskController.deleteTag(tagId));
     }
 
     private int readInt() {

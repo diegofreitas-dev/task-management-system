@@ -37,6 +37,7 @@ public class AppView {
                 case 2 -> createTag();
                 case 3 -> listTags();
                 case 4 -> updateTag();
+                case 5 -> deleteTag();
                 default -> throw new IllegalArgumentException("invalid choice");
             }
         }

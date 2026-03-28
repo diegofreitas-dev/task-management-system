@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Tag;
 import model.Task;
 import model.TaskPriority;
@@ -19,24 +21,24 @@ public class TaskController {
         this.tagService = tagService;
     }
 
-    public Task createTask(String title, String description, int priority) {
-        return taskService.createTask(title, description, TaskPriority.fromOption(priority));
+    public Task createTask(String title, String description, TaskPriority priority) {
+        return taskService.createTask(title, description, priority);
     }
 
-    public Task changeTaskStatus(int id, int newStatus) {
-        return taskService.changeTaskStatus(id, TaskStatus.fromOption(newStatus));
+    public Task changeTaskStatus(int id, TaskStatus newStatus) {
+        return taskService.changeTaskStatus(id, newStatus);
     }
 
     public void deleteTask(int id) {
         taskService.deleteTask(id);
     }
 
-    public Collection<Task> listTasks() {
-        return taskService.listTasks();
+    public ObservableList<Task> listTasks() {
+        return FXCollections.observableArrayList(taskService.listTasks());
     }
 
-    public Task modifyTask(int id, String title, String description, int priority) {
-        return taskService.modifyTask(id, title, description, TaskPriority.fromOption(priority));
+    public Task modifyTask(int id, String title, String description, TaskPriority priority) {
+        return taskService.modifyTask(id, title, description, priority);
     }
 
     public Task addTag(int taskId, String tagName) {
@@ -83,5 +85,4 @@ public class TaskController {
     public Tag updateTag(int id, String newName) {
         return tagService.updateTag(id, newName);
     }
-
 }

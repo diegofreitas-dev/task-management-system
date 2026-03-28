@@ -26,6 +26,8 @@ public class TaskService {
     public Task changeTaskStatus(int id, TaskStatus newStatus) {
         Task task = searchTask(id);
         task.updateStatus(newStatus);
+
+        tasks.replace(id, task);
         return task;
     }
 
@@ -44,6 +46,8 @@ public class TaskService {
         task.updateTitle(title);
         task.updateDescription(description);
         task.updatePriority(priority);
+
+        tasks.replace(id, task);
 
         return task;
     }

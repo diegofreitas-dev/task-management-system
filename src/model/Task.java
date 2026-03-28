@@ -25,6 +25,8 @@ public class Task {
 
     public String getTitle() {return title;}
 
+    public String getDescription() {return description;}
+
     public TaskStatus getStatus() {return status;}
 
     public TaskPriority getPriority() {return priority;}

@@ -57,9 +57,7 @@ public class TaskView {
 
         int choicePriority = askAboutPriority();
 
-        System.out.println(
-                taskController.createTask(title, description, choicePriority)
-        );
+
     }
 
     private void listTask() {
@@ -78,7 +76,7 @@ public class TaskView {
         int choiceStatus = askAboutStatus();
 
         System.out.println(
-                taskController.changeTaskStatus(id, choiceStatus)
+
         );
     }
 
@@ -93,7 +91,7 @@ public class TaskView {
         int choicePriority = askAboutPriority();
 
         System.out.println(
-                taskController.modifyTask(id, newTitle, newDescription, choicePriority)
+                
         );
     }
 

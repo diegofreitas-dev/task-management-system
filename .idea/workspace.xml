@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3ce6bbc1-8e87-49c7-a837-d0f0c43114c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TaskView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TaskView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3AnfmDN70etq1DoElfVjZWUcfWO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Javafx App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/interface-integration&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Javafx App" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="view.MainFX" />
+      <module name="task-management-system" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Diego\Downloads\openjfx-21.0.10_windows-x64_bin-sdk\javafx-sdk-21.0.10\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ce6bbc1-8e87-49c7-a837-d0f0c43114c2" name="Changes" comment="" />
+      <created>1773233414183</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773233414183</updated>
+      <workItem from="1773233418417" duration="1543000" />
+      <workItem from="1773247745630" duration="3009000" />
+      <workItem from="1773268011709" duration="601000" />
+      <workItem from="1773274926191" duration="4902000" />
+      <workItem from="1773316331138" duration="10978000" />
+      <workItem from="1773428987589" duration="1538000" />
+      <workItem from="1773445210984" duration="1466000" />
+      <workItem from="1773627609706" duration="161000" />
+      <workItem from="1773686284859" duration="2862000" />
+      <workItem from="1773692074932" duration="635000" />
+      <workItem from="1773696636973" duration="9086000" />
+      <workItem from="1773747851445" duration="1460000" />
+      <workItem from="1773837268634" duration="4928000" />
+      <workItem from="1773861781300" duration="4869000" />
+      <workItem from="1773942468649" duration="3484000" />
+      <workItem from="1773964395533" duration="3017000" />
+      <workItem from="1774016359223" duration="41000" />
+      <workItem from="1774035439954" duration="20729000" />
+      <workItem from="1774142299555" duration="4697000" />
+      <workItem from="1774196135489" duration="3933000" />
+      <workItem from="1774266097865" duration="791000" />
+      <workItem from="1774285621974" duration="710000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
